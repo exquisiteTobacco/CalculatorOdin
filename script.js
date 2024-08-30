@@ -89,6 +89,66 @@ function clickNine() {
     const num = document.querySelector("#nine");
     num.addEventListener("click", () => { screen.innerHTML += "9"; });
 }
+function clickZero() {
+    const screen = document.querySelector(".screen");
+    const num = document.querySelector("#zero");
+    num.addEventListener("click", () => { screen.innerHTML += "0"; });
+}
+
+
+let data = [null, null , null];
+function clickPlus() {
+    const screen = document.querySelector(".screen");
+    const btn = document.querySelector("#plus")
+    let answer = 0;
+    btn.addEventListener("click",() => {
+        if (screen.innerHTML.trim() === "") {
+            return; // Do nothing if the screen is empty
+        }
+ 
+        if(data[0] != null)
+            {
+                answer = operate(data[0],parseFloat(screen.innerHTML),"+")
+                screen.innerHTML = answer;
+                data[0] = answer;
+            }
+            else{
+                data[0] = parseFloat(screen.innerHTML);
+                data[1] = "+"
+                screen.innerHTML ="";
+            }
+    })
+   
+}
+function clickEquals() {
+    const screen = document.querySelector(".screen");
+    const btn = document.querySelector("#equals")
+    let answer = 0;
+    btn.addEventListener("click",() => { 
+        if(screen.innerHTML === "")
+        {
+
+        }
+        else if(data[1] = "+")
+        {
+            data[2] = parseFloat(screen.innerHTML);
+            answer = operate(data[0],data[2],data[1])
+                screen.innerHTML = answer;
+                data = [];
+        }
+        
+        
+    })
+}
+function clear(){
+    const screen = document.querySelector(".screen");
+    const btn = document.querySelector("#clear")
+    btn.addEventListener("click",() => {
+        screen.innerHTML = " ";
+        data = [];
+    })
+}
+clickZero()
 clickOne();
 clickTwo();
 clickThree();
@@ -98,3 +158,6 @@ clickSix();
 clickSeven();
 clickEight();
 clickNine();
+clickPlus();
+clickEquals();
+clear();
