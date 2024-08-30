@@ -120,6 +120,68 @@ function clickPlus() {
     })
    
 }
+function clickMinus() {
+    const screen = document.querySelector(".screen");
+    const btn = document.querySelector("#minus");
+    let answer = 0;
+    btn.addEventListener("click", () => {
+        if (screen.innerHTML.trim() === "") {
+            return; // Do nothing if the screen is empty
+        }
+
+        if (data[0] != null) {
+            answer = operate(data[0], parseFloat(screen.innerHTML), "-");
+            screen.innerHTML = answer;
+            data[0] = answer;
+        } else {
+            data[0] = parseFloat(screen.innerHTML);
+            data[1] = "-";
+            screen.innerHTML = "";
+        }
+    });
+}
+function clickMultiply() {
+    const screen = document.querySelector(".screen");
+    const btn = document.querySelector("#multiply");
+    let answer = 0;
+    btn.addEventListener("click", () => {
+        if (screen.innerHTML.trim() === "") {
+            return; // Do nothing if the screen is empty
+        }
+
+        if (data[0] != null) {
+            answer = operate(data[0], parseFloat(screen.innerHTML), "*");
+            screen.innerHTML = answer;
+            data[0] = answer;
+        } else {
+            data[0] = parseFloat(screen.innerHTML);
+            data[1] = "*";
+            screen.innerHTML = "";
+        }
+    });
+}
+function clickDivide() {
+    const screen = document.querySelector(".screen");
+    const btn = document.querySelector("#divide");
+    let answer = 0;
+    btn.addEventListener("click", () => {
+        if (screen.innerHTML.trim() === "") {
+            return; // Do nothing if the screen is empty
+        }
+
+        if (data[0] != null) {
+            answer = operate(data[0], parseFloat(screen.innerHTML), "/");
+            screen.innerHTML = answer;
+            data[0] = answer;
+        } else {
+            data[0] = parseFloat(screen.innerHTML);
+            data[1] = "/";
+            screen.innerHTML = "";
+        }
+    });
+}
+
+
 function clickEquals() {
     const screen = document.querySelector(".screen");
     const btn = document.querySelector("#equals")
@@ -129,14 +191,31 @@ function clickEquals() {
         {
 
         }
-        else if(data[1] = "+")
+        else if(data[1] == "+")
         {
             data[2] = parseFloat(screen.innerHTML);
             answer = operate(data[0],data[2],data[1])
                 screen.innerHTML = answer;
                 data = [];
         }
-        
+        else if(data[1] == "-")
+            {
+                data[2] = parseFloat(screen.innerHTML);
+                answer = operate(data[0],data[2],data[1])
+                    screen.innerHTML = answer;
+                    data = [];
+            }
+         else if (data[1] === "*") {
+            data[2] = parseFloat(screen.innerHTML);
+            answer = operate(data[0], data[2], data[1]);
+            screen.innerHTML = answer;
+            data = []; 
+        } else if (data[1] === "/") {
+            data[2] = parseFloat(screen.innerHTML);
+            answer = operate(data[0], data[2], data[1]);
+            screen.innerHTML = answer;
+            data = []; 
+        }
         
     })
 }
@@ -159,5 +238,8 @@ clickSeven();
 clickEight();
 clickNine();
 clickPlus();
+clickMinus();
+clickMultiply();
+clickDivide();
 clickEquals();
 clear();
