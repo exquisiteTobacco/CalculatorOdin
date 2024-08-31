@@ -281,6 +281,17 @@ function clickEquals() {
         clikedEquals = 1;
     })
 }
+function clickSeperator{
+    const screen = document.querySelector(".screen");
+    const btn = document.querySelector("#equals")
+    btn.addEventListener("click", () =>{
+        if (screen.innerHTML.trim() === "") {
+            return; // Do nothing if the screen is empty
+        }
+        screen.innerHTML += "."
+
+    })
+}
 function clear(){
     const screen = document.querySelector(".screen");
     const btn = document.querySelector("#clear")
