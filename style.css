@@ -36,24 +36,29 @@ body {
    
     
 }
-.screen{
-   
+.screen {
     text-align: right;
-    background-color: gray;
     width: 500px;
-    box-sizing: border-box; /* Include padding in the total width and height */
-    overflow: hidden;
-    padding-block-start: 0.25rem; /* Logical Property for padding-top */
-    padding-block-end: 0.25rem; /* Logical Property for padding-bottom */
-    padding-inline-end: 0.75rem; /* Logical Property for padding-right */
     height: 80px;
-    background: hsl(202, 11%, 29%); /* background color */
-    color: hsl(255, 100%, 100%); /* text color */
-    border-radius: 12px     12px      0           0;
+    box-sizing: border-box; /* Include padding and border in the width and height */
+    overflow: hidden; /* Hide overflow */
+    padding: 0.25rem 0.75rem; /* Unified padding shorthand */
+    background: hsl(202, 11%, 29%); /* Background color */
+    color: hsl(255, 100%, 100%); /* Text color */
+    border-radius: 12px 12px 0 0; /* Rounded corners */
     font-size: 4rem;
-    padding: 0;
-    padding-right: 25px;
+    max-width: 100%; /* Ensure container does not exceed the viewport width */
+    overflow-x: auto;
+    overflow-y: hidden;
 }
+
+
+/* Optional: Ensure child elements don’t cause overflow */
+.screen * {
+    box-sizing: border-box; /* Ensure child elements also respect padding and borders */
+}
+
+
 .buttonsContainer{
     
     width: 470px;
