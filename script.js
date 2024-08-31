@@ -180,7 +180,7 @@ function clickPlus() {
         if(data[0] != null)
             {
                 answer = operate(data[0],parseFloat(screen.innerHTML),"+")
-                screen.innerHTML = answer;
+                screen.innerHTML = answer.toFixed(8);
                 data[0] = answer;
             }
             else{
@@ -202,7 +202,7 @@ function clickMinus() {
 
         if (data[0] != null) {
             answer = operate(data[0], parseFloat(screen.innerHTML), "-");
-            screen.innerHTML = answer;
+            screen.innerHTML = answer.toFixed(8);
             data[0] = answer;
         } else {
             data[0] = parseFloat(screen.innerHTML);
@@ -222,7 +222,7 @@ function clickMultiply() {
 
         if (data[0] != null) {
             answer = operate(data[0], parseFloat(screen.innerHTML), "*");
-            screen.innerHTML = answer;
+            screen.innerHTML = answer.toFixed(8);
             data[0] = answer;
         } else {
             data[0] = parseFloat(screen.innerHTML);
@@ -256,7 +256,7 @@ function clickDivide() {
     
             // Perform the division operation
             answer = operate(data[0], currentNumber, "/");
-            screen.innerHTML = answer; // Display the result
+            screen.innerHTML = answer.toFixed(8); // Display the result
             data[0] = answer; // Store the result for further operations
         } else {
             // No prior value, so store the current screen value in data[0]
@@ -283,7 +283,7 @@ function clickEquals() {
         {
             data[2] = parseFloat(screen.innerHTML);
             answer = operate(data[0],data[2],data[1])
-                screen.innerHTML = answer;
+                screen.innerHTML = answer.toFixed(8);
                 data = [];
         }
         else if(data[1] == "-")
@@ -291,13 +291,13 @@ function clickEquals() {
                 data[2] = parseFloat(screen.innerHTML);
                 
                 answer = operate(data[0],data[2],data[1])
-                    screen.innerHTML = answer;
+                    screen.innerHTML = answer.toFixed(8);
                     data = [];
             }
          else if (data[1] === "*") {
             data[2] = parseFloat(screen.innerHTML);
             answer = operate(data[0], data[2], data[1]);
-            screen.innerHTML = answer;
+            screen.innerHTML = answer.toFixed(8);
             data = []; 
         } else if (data[1] === "/") {
             data[2] = parseFloat(screen.innerHTML);
@@ -308,7 +308,7 @@ function clickEquals() {
                 return;
             }
             answer = operate(data[0], data[2], data[1]);
-            screen.innerHTML = answer;
+            screen.innerHTML = answer.toFixed(8);
             data = []; 
         }
         clikedEquals = 1;
