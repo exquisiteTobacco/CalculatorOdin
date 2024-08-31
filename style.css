@@ -1,3 +1,10 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -35,7 +42,7 @@ body {
     justify-content: center;
     border-radius: 12px;
     margin-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 0px;
     
 }
 .screen{
@@ -45,8 +52,8 @@ body {
     width: 450px;
     box-sizing: border-box; /* Include padding in the total width and height */
     overflow: hidden;
-    padding: 10px;
-    height: 90px;
+    margin: 5px;
+    height: 80px;
     font-weight: bolder;
     
     
