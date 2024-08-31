@@ -281,9 +281,9 @@ function clickEquals() {
         clikedEquals = 1;
     })
 }
-function clickSeperator{
+function clickSeperator(){
     const screen = document.querySelector(".screen");
-    const btn = document.querySelector("#equals")
+    const btn = document.querySelector("#dot")
     btn.addEventListener("click", () =>{
         if (screen.innerHTML.trim() === "") {
             return; // Do nothing if the screen is empty
@@ -292,6 +292,18 @@ function clickSeperator{
 
     })
 }
+function clickBack() {
+    const screen = document.querySelector(".screen");
+    const btn = document.querySelector("#back");
+    
+    btn.addEventListener("click", () => {
+        if (screen.innerHTML.length > 0) {
+            // Remove the last character from the screen
+            screen.innerHTML = screen.innerHTML.slice(0, -1);
+        }
+    });
+}
+
 function clear(){
     const screen = document.querySelector(".screen");
     const btn = document.querySelector("#clear")
@@ -315,4 +327,6 @@ clickMinus();
 clickMultiply();
 clickDivide();
 clickEquals();
+clickSeperator()
+clickBack()
 clear();
