@@ -248,7 +248,7 @@ function clickDivide() {
     
             // Step 3: Handle division by zero
             if (currentNumber == 0 ) {
-                screen.innerHTML = "ha Ha nice try"; // Display an error message
+                screen.innerHTML = "nice try"; // Display an error message
                 data[0] = null; // Reset stored value
                 divideZero = 1;
                 return;
@@ -302,7 +302,7 @@ function clickEquals() {
         } else if (data[1] === "/") {
             data[2] = parseFloat(screen.innerHTML);
             if (data[2] == 0 ) {
-                screen.innerHTML = "Ha HA nice try"; // Display an error message
+                screen.innerHTML = "nice try"; // Display an error message
                 data[0] = null; // Reset stored value
                 divideZero = 1;
                 return;
