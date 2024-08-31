@@ -39,60 +39,121 @@ function operate(a , b, operand){
 function clickOne() {
     const screen = document.querySelector(".screen");
     const num = document.querySelector("#one");
-    num.addEventListener("click", () => { screen.innerHTML += "1"; });
+   
+    num.addEventListener("click", () => { 
+        if(clikedEquals == 1)
+            {
+                screen.innerHTML = "";
+                clikedEquals = 0;
+            }
+        screen.innerHTML += "1"; });
 }
 
 function clickTwo() {
     const screen = document.querySelector(".screen");
     const num = document.querySelector("#two");
-    num.addEventListener("click", () => { screen.innerHTML += "2"; });
+    num.addEventListener("click", () => { 
+        if(clikedEquals == 1)
+            {
+                screen.innerHTML = "";
+                clikedEquals = 0;
+            }
+        screen.innerHTML += "2"; });
 }
 
 function clickThree() {
     const screen = document.querySelector(".screen");
     const num = document.querySelector("#three");
-    num.addEventListener("click", () => { screen.innerHTML += "3"; });
+    num.addEventListener("click", () => { 
+        if(clikedEquals == 1)
+            {
+                screen.innerHTML = "";
+                clikedEquals = 0;
+            }
+        screen.innerHTML += "3"; });
 }
 
 function clickFour() {
     const screen = document.querySelector(".screen");
     const num = document.querySelector("#four");
-    num.addEventListener("click", () => { screen.innerHTML += "4"; });
+    num.addEventListener("click", () => { 
+        if(clikedEquals == 1)
+            {
+                screen.innerHTML = "";
+                clikedEquals = 0;
+            }
+        screen.innerHTML += "4"; });
 }
 
 function clickFive() {
     const screen = document.querySelector(".screen");
     const num = document.querySelector("#five");
-    num.addEventListener("click", () => { screen.innerHTML += "5"; });
+    num.addEventListener("click", () => { 
+        if(clikedEquals == 1)
+            {
+                screen.innerHTML = "";
+                clikedEquals = 0;
+            }
+        screen.innerHTML += "5"; });
 }
 
 function clickSix() {
     const screen = document.querySelector(".screen");
     const num = document.querySelector("#six");
-    num.addEventListener("click", () => { screen.innerHTML += "6"; });
+    num.addEventListener("click", () => { 
+        if(clikedEquals == 1)
+            {
+                screen.innerHTML = "";
+                clikedEquals = 0;
+            }
+        screen.innerHTML += "6"; });
 }
 
 function clickSeven() {
     const screen = document.querySelector(".screen");
     const num = document.querySelector("#seven");
-    num.addEventListener("click", () => { screen.innerHTML += "7"; });
+    num.addEventListener("click", () => { 
+        if(clikedEquals == 1)
+            {
+                screen.innerHTML = "";
+                clikedEquals = 0;
+            }
+        screen.innerHTML += "7"; });
 }
 
 function clickEight() {
     const screen = document.querySelector(".screen");
     const num = document.querySelector("#eight");
-    num.addEventListener("click", () => { screen.innerHTML += "8"; });
+    num.addEventListener("click", () => { 
+        if(clikedEquals == 1)
+            {
+                screen.innerHTML = "";
+                clikedEquals = 0;
+            }
+        screen.innerHTML += "8"; });
 }
 
 function clickNine() {
     const screen = document.querySelector(".screen");
     const num = document.querySelector("#nine");
-    num.addEventListener("click", () => { screen.innerHTML += "9"; });
+    num.addEventListener("click", () => { 
+        if(clikedEquals == 1)
+            {
+                screen.innerHTML = "";
+                clikedEquals = 0;
+            }
+        screen.innerHTML += "9"; });
 }
 function clickZero() {
     const screen = document.querySelector(".screen");
     const num = document.querySelector("#zero");
-    num.addEventListener("click", () => { screen.innerHTML += "0"; });
+    num.addEventListener("click", () => { 
+        if(clikedEquals == 1)
+            {
+                screen.innerHTML = "";
+                clikedEquals = 0;
+            }
+        screen.innerHTML += "0"; });
 }
 
 
@@ -105,7 +166,7 @@ function clickPlus() {
         if (screen.innerHTML.trim() === "") {
             return; // Do nothing if the screen is empty
         }
- 
+        
         if(data[0] != null)
             {
                 answer = operate(data[0],parseFloat(screen.innerHTML),"+")
@@ -181,7 +242,8 @@ function clickDivide() {
     });
 }
 
-
+// for clearing the screen after clicking euqals on subsequent number clicks
+let clikedEquals = 0;
 function clickEquals() {
     const screen = document.querySelector(".screen");
     const btn = document.querySelector("#equals")
@@ -216,7 +278,7 @@ function clickEquals() {
             screen.innerHTML = answer;
             data = []; 
         }
-        
+        clikedEquals = 1;
     })
 }
 function clear(){
