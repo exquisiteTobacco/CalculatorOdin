@@ -92,6 +92,7 @@ body {
     margin: 10px;
     font-size: 30px;
     font-weight: bolder;
+    padding: 5px;
 }
 .a:hover{
     background-color: #023047;
