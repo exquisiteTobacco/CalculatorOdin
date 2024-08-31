@@ -22,51 +22,50 @@ body {
     display: flex;
     align-items: center;
     width: 500px;
-    height: 600px;
+    height: 500px;
     border: 1px solid #023047; /* Correctly sets the border with width, style, and color */
     flex-direction: column;
     background-color: #8ecae6;
     border-radius: 12px;
     margin: 10px;
     padding-bottom:5px ;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(0, 0, 0, 0.12); /* Give the calculator some depth off the page */
+    
 }
 .screenContainer{
-    width: 470px;
-    height: 100px;
-    border: 4px solid #023047;
-    margin-top: 10px;
-    background-color: gray;
-    font-size: 80px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    border-radius: 12px;
-    margin-top: 15px;
-    padding-bottom: 0px;
+   
     
 }
 .screen{
    
     text-align: right;
     background-color: gray;
-    width: 450px;
+    width: 500px;
     box-sizing: border-box; /* Include padding in the total width and height */
     overflow: hidden;
-    margin: 5px;
+    padding-block-start: 0.25rem; /* Logical Property for padding-top */
+    padding-block-end: 0.25rem; /* Logical Property for padding-bottom */
+    padding-inline-end: 0.75rem; /* Logical Property for padding-right */
     height: 80px;
-    font-weight: bolder;
-    
-    
+    background: hsl(202, 11%, 29%); /* background color */
+    color: hsl(255, 100%, 100%); /* text color */
+    border-radius: 12px     12px      0           0;
+    font-size: 4rem;
+    padding: 0;
+    padding-right: 25px;
 }
 .buttonsContainer{
     
     width: 470px;
     height: 450px;
-    margin: 10px;
+   
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 15px;
+    
+    
+    justify-content: center;
+    align-items: center;
+    
 }
 .operands{
     
@@ -74,34 +73,44 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 500px;
+    
     
 }
 .a{
     width: 100px;
     height: 100px;
     
-    border: 2px solid #023047;
-    background-color: #fb8500;
+    
+  padding-block-start: 0.5rem; /* Logical Property for padding-top */
+  padding-block-end: 0.5rem; /* Logical Property for padding-bottom */
+  padding-inline-start: 1.25rem; /* Logical Property for padding-left */
+  padding-inline-end: 1.25rem; /* Logical Property for padding-right */
+  font-size: 1.5rem;
+  background: hsl(207, 19%, 61%);
     
     font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 12px; /* Adds space around each button */
-    margin: 10px;
+    /* border-radius: 12px; Adds space around each button */
+    
     font-size: 30px;
     font-weight: bolder;
-    padding: 5px;
+    border: 1px solid hsl(208, 24%, 74%);
+    
+    
 }
 .a:hover{
     background-color: #023047;
+    
 
 }
 .numbers{
     
     
-    width: 470px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     height: 350px;
@@ -116,11 +125,13 @@ body {
     width: 170px;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    margin: 5px;
-    background-color: #219ebc;
-    font-size: larger;
+   
+    
+    background: hsl(208, 25%, 86%);
+    border: 1px solid hsl(208, 24%, 74%);
+    font-size: 18px;
     font-weight: bold;
+   
 }
 .b:hover{
     background-color:#023047;
@@ -141,4 +152,14 @@ body {
 .FourthRow{
     display: flex;
     height: 100px;
+}
+#equals{
+    background: hsl(357, 100%, 72%);
+    border-radius: 0 0 12px 0;
+}
+#equals:hover{
+    background-color: hsl(357, 100%, 22%);
+}
+#zero{
+    border-radius: 0 0 0 12px;
 }

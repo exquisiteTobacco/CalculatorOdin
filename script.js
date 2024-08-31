@@ -11,6 +11,9 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+    if (b === 0) {
+        return "Error"; // Handle division by zero
+    }
     return a / b;
 }
 
@@ -25,14 +28,14 @@ function operate(a, b, operand) {
         return subtract(a, b);
     } else if (operand === "*") {
         return multiply(a, b);
-    } else {
+    } else if (operand === "/") {
         return divide(a, b);
     }
 }
 
 function clickNumber(num) {
     const screen = document.querySelector(".screen");
-    if (clikedEquals == 1 || divideZero == 1) {
+    if (clikedEquals === 1 || divideZero === 1) {
         screen.innerHTML = "";
         clikedEquals = 0;
         divideZero = 0;
@@ -78,9 +81,14 @@ function processOperator(operator) {
         return; // Do nothing if the screen is empty
     }
     if (data[0] != null) {
-        const answer = operate(data[0], parseFloat(screen.innerHTML), data[1]);
-        screen.innerHTML = Number.isInteger(answer) ? answer : answer.toFixed(8);
-        data[0] = answer;
+        let answer = operate(data[0], parseFloat(screen.innerHTML), data[1]);
+        if (answer === "Error") {
+            screen.innerHTML = "Error"; // Display error message
+            divideZero = 1;
+        } else {
+            screen.innerHTML = Number.isInteger(answer) ? answer : answer.toFixed(8);
+            data[0] = answer;
+        }
     } else {
         data[0] = parseFloat(screen.innerHTML);
     }
@@ -97,9 +105,14 @@ function clickEquals() {
         }
         data[2] = parseFloat(screen.innerHTML);
         let answer = operate(data[0], data[2], data[1]);
-        screen.innerHTML = Number.isInteger(answer) ? answer : answer.toFixed(8);
-        data = [null, null, null];
-        clikedEquals = 1;
+        if (answer === "Error") {
+            screen.innerHTML = "Nice try my dude"; // Display error message
+            divideZero = 1;
+        } else {
+            screen.innerHTML = Number.isInteger(answer) ? answer : answer.toFixed(8);
+            data = [null, null, null];
+            clikedEquals = 1;
+        }
     });
 }
 
@@ -117,9 +130,20 @@ function clickBack() {
     const screen = document.querySelector(".screen");
     const btn = document.querySelector("#back");
     btn.addEventListener("click", () => {
-        screen.innerHTML = screen.innerHTML.slice(0, -1);
+        // Convert innerHTML to a number
+        const currentNumber = parseFloat(screen.innerHTML);
+        
+        if (Number.isInteger(currentNumber)) {
+            // If the number is an integer, perform backspace
+            screen.innerHTML = screen.innerHTML.slice(0, -1);
+        } else {
+            // If the number is not an integer, clear the screen
+            screen.innerHTML = "";
+            divideZero = 1;
+        }
     });
 }
+
 
 function clear() {
     const screen = document.querySelector(".screen");
@@ -143,7 +167,7 @@ function init() {
     document.querySelector("#eight").addEventListener("click", () => clickNumber("8"));
     document.querySelector("#nine").addEventListener("click", () => clickNumber("9"));
     document.querySelector("#zero").addEventListener("click", () => clickNumber("0"));
-    
+
     clickPlus();
     clickMinus();
     clickMultiply();
